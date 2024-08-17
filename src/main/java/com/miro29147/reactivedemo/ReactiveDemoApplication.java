@@ -14,20 +14,20 @@ public class ReactiveDemoApplication {
         SpringApplication.run(ReactiveDemoApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(StudentService studentService) {
-        return args -> {
-            for (int i = 0; i < 100; i++) {
-                System.out.println("hello: " + i);
-                studentService.save(
-                        Student.builder()
-                                .firstName("Boojoo" + i)
-                                .lastName("Beedo" + i)
-                                .birthDate("21/7/1999")
-                                .build()
-                );
-            }
-        };
-    }
+//    @Bean
+//    public CommandLineRunner commandLineRunner(StudentService studentService) {
+//        return args -> {
+//            for (int i = 0; i < 100; i++) {
+//                System.out.println("hello: " + i);
+//                studentService.save(
+//                        Student.builder()
+//                                .firstName("Boojoo" + i)
+//                                .lastName("Beedo" + i)
+//                                .birthDate("21/7/1999")
+//                                .build()
+//                ).subscribe();
+//            }
+//        };
+//    }
 
 }
