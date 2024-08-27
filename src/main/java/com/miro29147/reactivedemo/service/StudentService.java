@@ -19,8 +19,11 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Flux<Student> findAll() {
-        return studentRepository.findAll().delayElements(Duration.ofSeconds(2));
+    public Flux<Student> findAll() throws InterruptedException {
+        Flux<Student> students = studentRepository.findAll().delayElements(Duration.ofSeconds(2)).log();
+        Thread.sleep(2000);
+//        System.out.println("TESTING BLOCKING");
+        return students;
     }
 
     public Mono<Student> findById(Integer id) {

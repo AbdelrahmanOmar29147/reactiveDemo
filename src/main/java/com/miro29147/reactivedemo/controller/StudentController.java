@@ -21,7 +21,7 @@ public class StudentController {
     }
 
     @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    Flux<Student> findAll() {
+    Flux<Student> findAll() throws InterruptedException {
         return studentService.findAll();
     }
 
